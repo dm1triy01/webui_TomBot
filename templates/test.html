@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link href="/../static/header.css" rel="stylesheet" />
+    <link href="/../static/font.css" rel="stylesheet" />
+    <link href="/../static/test.css" rel="stylesheet" />
+    <link href="/static/images/logo1.png" rel="icon" />
+
+<head>
+    <meta charset="UTF-8">
+    <title>TomBot</title>
+</head>
+<body>
+
+    <header class="header">
+      <div class="container">
+        <div class="header_box">
+          <div>
+              <a href="{{ url_for('default') }}">
+                  <img src="/static/images/logo1.png" width="40" height="40">
+              </a>
+          </div>
+
+          <nav class="nav">
+              <a class="nav" href="{{ url_for('default') }}">Home</a>
+              <a class="nav" href="{{ url_for('panel') }}">Panel</a>
+              <a class="nav" href="{{ url_for('about') }}">About</a>
+              {% if current_user %}
+                  <div class="dropdown">
+                    <button class="dropbtn">{{ current_user.username }}#{{ current_user.discriminator }}</button>
+                    <div class="dropdown-content">
+                        <a class="nav" href="{{ url_for('logout') }}">Logout</a>
+                    </div>
+                  </div>
+{#                  <div><img class="avatar" src="{{ current_user.avatar_url }}" width="30" height="30" alt="Avatar"></div>#}
+              {% else %}
+                <a class="nav" href="{{ redirect_uri }}">Login</a>
+              {% endif %}
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrapper">
+        <span>T</span>
+        <span>o</span>
+        <span>m</span>
+        <span>B</span>
+        <span>o</span>
+        <span>t</span>
+    </div>
+
+    <div class="max_bottom">
+        <p class="text">by dm1</p>
+        <p class="text">P.S. Да, я спиздил эту анимацию.</p>
+    </div>
+
+    <div class="lang_container">
+        <nav>
+            <a class="lang_nav" href="{{ url_for('default_ru') }}">Ru</a>
+            <a style="color: #fff; font-family: 'Signika', sans-serif; font-size: 15px; cursor: default;">|</a>
+            <a class="lang_nav" href="{{ url_for('default') }}">En</a>
+        </nav>
+    </div>
+
+</body>
+</html>

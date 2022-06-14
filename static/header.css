@@ -1,0 +1,145 @@
+body {
+	margin: 0;
+	color: #666;
+}
+
+*, *:after, *:before {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+}
+/* Header */
+.header {
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 999;
+}
+
+.header_box {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.nav {
+	text-align: center;
+	font-size: 15px;
+	font-family: 'Signika', sans-serif;
+	/*margin: auto; */
+}
+
+a.nav {
+	display: inline-block;
+	margin: 0 45px;
+	text-decoration: none;
+	color: #fff;
+	transition: all 0.3s linear;
+}
+
+a.nav:hover {
+	color: rgba(154, 154, 154, 0.51);
+
+}
+
+.logo {
+	margin: auto;
+}
+
+/* Container */
+.container {
+	width: 100%;
+	width: 1200px;
+	margin: 0 auto;
+}
+
+.logged_in {
+	display: inline-block;
+	margin: 0 45px;
+	text-decoration: none;
+	font-family: 'Signika', sans-serif;
+	font-size: 15px;
+	color: #e0b400;
+	text-align: center;
+	text-shadow:
+		0 0 11px #deb301,
+		0 0 20px #98831b,
+		0 0 30px #98831b,
+		0 0 55px #81701a,
+		0 0 80px #655816;
+}
+
+.avatar {
+	border-radius: 50%;
+	display: inline-block;
+}
+
+/* Кнопка выпадающего списка */
+.dropbtn {
+	display: inline-block;
+	margin: 0 45px;
+	text-decoration: none;
+	font-family: 'Signika', sans-serif;
+	font-size: 15px;
+	color: #e0b400;
+	text-align: center;
+	text-shadow:
+		0 0 11px #deb301,
+		0 0 20px #98831b,
+		0 0 30px #98831b,
+		0 0 55px #81701a,
+		0 0 80px #655816;
+	background-color: rgba(76, 175, 80, 0);
+	border: none;
+}
+
+/* Контейнер <div> - необходим для размещения выпадающего содержимого */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Выпадающее содержимое (скрыто по умолчанию) */
+.dropdown-content {
+  display: none;
+  position: fixed;
+  background-color: rgba(241, 241, 241, 0);
+  z-index: 1;
+}
+
+/* Ссылки внутри выпадающего списка */
+.dropdown-content a {
+	color: #fff;
+	padding: 5px 25%;
+	text-decoration: none;
+	display: block;
+	text-align: center;
+}
+
+/* Изменение цвета выпадающих ссылок при наведении курсора */
+.dropdown-content a:hover {
+	display: inline-block;
+	text-align: center;
+	text-decoration: none;
+	color: rgba(154, 154, 154, 0.51);
+	transition: all 0.3s linear;
+}
+
+/* Показать выпадающее меню при наведении курсора */
+.dropdown:hover .dropdown-content {
+	opacity: 1;
+	display: block;
+}
+
+/* Изменение цвета фона кнопки раскрывающегося списка при отображении содержимого раскрывающегося списка */
+.dropdown:hover .dropbtn {
+	text-decoration: none;
+	text-shadow: none;
+	transition: all 0.3s linear;
+}

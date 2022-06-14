@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="/../static/sample.css" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <title>Hola Serega</title>
+</head>
+<body>
+    <form action="/selected/" method="POST">
+        <select name="var">
+            <option class="test3" selected="selected" disabled>Таблицы</option>
+            <option class="test2" value="Hola">Hola</option>
+            <option class="test2" value="Halo">Halo</option>
+            <option class="test2" value="secret">?</option>
+        </select>
+        <input type="hidden" name="index" value="1">
+        <input type="submit" class="btn btn-dark" value="Select">
+    </form>
+    <h1 class="test">{{ select }}</h1>
+</body>
+</html>

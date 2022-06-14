@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Acme&family=Rubik&display=swap");
+.text {
+    color: rgba(138, 138, 138, 0.33);
+    font-family: 'Acme', sans-serif;
+    text-align: center;
+}
+
+.max_bottom {
+    position: fixed;
+    bottom: 4%;
+}
+
+.lang_container {
+    position: fixed;
+    right: 4%;
+    bottom: 4%;
+}
+
+
+.lang_nav {
+	font-size: 15px;
+	font-family: 'Signika', sans-serif;
+	cursor: pointer;
+	/*margin: auto; */
+}
+
+a.lang_nav {
+	display: inline-block;
+	margin: 0 1px;
+	text-decoration: none;
+	color: #fff;
+	transition: all 0.3s linear;
+}
+
+a.lang_nav:hover {
+	color: rgba(154, 154, 154, 0.51);
+}
