@@ -4,6 +4,8 @@
     <link href="/../static/font.css" rel="stylesheet" />
     <link href="/../static/test.css" rel="stylesheet" />
     <link href="/static/images/logo1.png" rel="icon" />
+    <link href="/../static/panel.css" rel="stylesheet" />
+
 
 <head>
     <meta charset="UTF-8">
@@ -41,6 +43,10 @@
     </header>
     <div>
             {% if show == True %}
+                <div class="add_bot_button">
+                    <a class="add_bot_button" href="https://discord.com/api/oauth2/authorize?client_id=760499132003123260&permissions=8&scope=bot" target="_blank">Add Tom</a>
+                </div>
+
                 <div class="dropdown">
                 <button class="dropbtn">{{ current_user.id }}</button>
                     <div class="dropdown-content">
@@ -51,7 +57,7 @@
                 </div>
             {% else %}
                 <div>
-                    <p style="text-align: center">No Access.</p>
+                    <p style="text-align: center">Access denied.</p>
                     <p style="text-align: center">Log in to your Account.</p>
                 </div>
             {% endif %}
