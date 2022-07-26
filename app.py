@@ -15,7 +15,8 @@ def default():
     if 'token' in session:
         bearer_client = APIClient(session.get('token'), bearer=True)
         current_user = bearer_client.users.get_current_user()
-        return render_template('test.html', current_user=current_user)
+        current_guilds = bearer_client.users.get_my_guilds()
+        return render_template('test.html', current_user=current_user, current_guilds=current_guilds, access=access)
     return render_template('test.html', redirect_uri=login_config.OAUTH_URL)
 
 
@@ -25,6 +26,15 @@ def callback():
     access_token = client.oauth.get_access_token(code, login_config.REDIRECT_URI).access_token
     session['token'] = access_token
     return redirect('/')
+
+
+@app.route('/admin')
+def admin():
+    # print(str(request.url))
+    # print(str(request.endpoint))
+    # print(str(request.path))
+    # return redirect('/')
+    return render_template('admin.html', redirect_uri=login_config.OAUTH_URL)
 
 
 @app.route('/logout')
@@ -52,7 +62,11 @@ def logout():
 
 @app.route('/ru/', methods=['POST', 'GET'])
 def default_ru():
-    return render_template('test_ru.html')
+    if 'token' in session:
+        bearer_client = APIClient(session.get('token'), bearer=True)
+        current_user = bearer_client.users.get_current_user()
+        return render_template('test_ru.html', current_user=current_user)
+    return render_template('test_ru.html', redirect_uri=login_config.OAUTH_URL)
 
 
 # @app.route('/ru/about/', methods=['POST', 'GET'])
@@ -65,9 +79,10 @@ def panel():
     if 'token' in session:
         bearer_client = APIClient(session.get('token'), bearer=True)
         current_user = bearer_client.users.get_current_user()
-        if current_user.id in access:
-            show = True
-        return render_template('panel.html', current_user=current_user, show=show)
+        current_guilds = bearer_client.users.get_my_guilds()
+        # if current_user.id in access:
+        #     show = True
+        return render_template('panel.html', current_user=current_user, current_guilds=current_guilds, access=access)
     return render_template('panel.html', redirect_uri=login_config.OAUTH_URL)
 
 
@@ -76,7 +91,7 @@ def about():
     if 'token' in session:
         bearer_client = APIClient(session.get('token'), bearer=True)
         current_user = bearer_client.users.get_current_user()
-        return render_template('about.html', current_user=current_user)
+        return render_template('about.html', current_user=current_user, access=access)
     return render_template('about.html', redirect_uri=login_config.OAUTH_URL)
 
 

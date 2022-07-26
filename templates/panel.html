@@ -42,7 +42,10 @@
       </div>
     </header>
     <div>
-            {% if show == True %}
+            {% if current_user %}
+                {% if current_user.id in access %}
+                    <div></div>
+                {% endif %}
                 <div class="add_bot_button">
                     <a class="add_bot_button" href="https://discord.com/api/oauth2/authorize?client_id=760499132003123260&permissions=8&scope=bot" target="_blank">Add Tom</a>
                 </div>
@@ -52,6 +55,9 @@
                     <div class="dropdown-content">
                         <div>
                             <p>{{ current_user }}</p>
+                            {% for guild in current_guilds %}
+                            <p>{{ guild.id }}</p><p>{{ guild.name }}</p>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>

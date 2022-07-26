@@ -24,6 +24,11 @@
               <a class="nav" href="{{ url_for('default') }}">Home</a>
               <a class="nav" href="{{ url_for('panel') }}">Panel</a>
               <a class="nav" href="{{ url_for('about') }}">About</a>
+{#              {% if current_user %}#}
+{#                  {% if current_user.id in access %}#}
+{#                  <a class="nav" href="{{ url_for('admin') }}">Admin</a>#}
+{#                  {% endif %}#}
+{#              {% endif %}#}
               {% if current_user %}
                   <div class="dropdown">
                     <button class="dropbtn">{{ current_user.username }}#{{ current_user.discriminator }}</button>
