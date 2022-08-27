@@ -4,6 +4,7 @@ from zenora import APIClient
 from access import access
 
 import login_config
+import core
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "verysecret"
@@ -16,8 +17,8 @@ def default():
         bearer_client = APIClient(session.get('token'), bearer=True)
         current_user = bearer_client.users.get_current_user()
         current_guilds = bearer_client.users.get_my_guilds()
-        return render_template('test.html', current_user=current_user, current_guilds=current_guilds, access=access)
-    return render_template('test.html', redirect_uri=login_config.OAUTH_URL)
+        return render_template('test.html', current_user=current_user, current_guilds=current_guilds, access=access, status=core.get_status())
+    return render_template('test.html', redirect_uri=login_config.OAUTH_URL, status=core.get_status())
 
 
 @app.route('/oauth/callback/')
@@ -68,8 +69,8 @@ def panel():
         current_guilds = bearer_client.users.get_my_guilds()
         # if current_user.id in access:
         #     show = True
-        return render_template('panel.html', current_user=current_user, current_guilds=current_guilds, access=access)
-    return render_template('panel.html', redirect_uri=login_config.OAUTH_URL)
+        return render_template('panel.html', current_user=current_user, current_guilds=current_guilds, access=access, status=core.get_status())
+    return render_template('panel.html', redirect_uri=login_config.OAUTH_URL, status=core.get_status())
 
 
 @app.route('/about/', methods=['POST', 'GET'])
@@ -77,8 +78,8 @@ def about():
     if 'token' in session:
         bearer_client = APIClient(session.get('token'), bearer=True)
         current_user = bearer_client.users.get_current_user()
-        return render_template('about.html', current_user=current_user, access=access)
-    return render_template('about.html', redirect_uri=login_config.OAUTH_URL)
+        return render_template('about.html', current_user=current_user, access=access, status=core.get_status())
+    return render_template('about.html', redirect_uri=login_config.OAUTH_URL, status=core.get_status())
 
 
 if __name__ == '__main__':

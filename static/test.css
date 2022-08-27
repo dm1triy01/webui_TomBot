@@ -3,11 +3,12 @@
     color: rgba(138, 138, 138, 0.33);
     font-family: 'Acme', sans-serif;
     text-align: center;
+	font-size: 15px;
 }
 
 .max_bottom {
     position: fixed;
-    bottom: 4%;
+    bottom: 2%;
 }
 
 .lang_container {
