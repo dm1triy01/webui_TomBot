@@ -60,20 +60,6 @@ def logout():
 #         return render_template('selected.html', select=select)
 
 
-@app.route('/ru/', methods=['POST', 'GET'])
-def default_ru():
-    if 'token' in session:
-        bearer_client = APIClient(session.get('token'), bearer=True)
-        current_user = bearer_client.users.get_current_user()
-        return render_template('test_ru.html', current_user=current_user)
-    return render_template('test_ru.html', redirect_uri=login_config.OAUTH_URL)
-
-
-# @app.route('/ru/about/', methods=['POST', 'GET'])
-# def about_ru():
-#     return render_template('about_ru')
-
-
 @app.route('/panel/', methods=['POST', 'GET'])
 def panel():
     if 'token' in session:

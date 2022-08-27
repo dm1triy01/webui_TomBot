@@ -12,8 +12,8 @@
 
 .lang_container {
     position: fixed;
-    right: 4%;
-    bottom: 4%;
+    right: 2%;
+    bottom: 2%;
 }
 
 
@@ -22,6 +22,11 @@
 	font-family: 'Signika', sans-serif;
 	cursor: pointer;
 	/*margin: auto; */
+}
+
+a {
+	text-decoration: none;
+	margin: 2px;
 }
 
 a.lang_nav {
