@@ -60,7 +60,7 @@
 	 display: grid;
 	 place-items: center;
 	 overflow: hidden;
-	 background: #000;
+	 background: #000000;
 }
  @media screen and (max-height: 200px) {
 	 .wrapper {
